@@ -1,0 +1,33 @@
+<div ng-controller="todoController">
+
+<section id="todoapp">
+  <h1>To Do App</h1>
+  <header id="header">
+
+    <form name="frm" id="todo-form" ng-submit="addtodo()">
+      <input id="new-todo" placeholder="Enter Todo List" ng-model="newtodo" required autofocus>
+
+    </form>
+  </header>
+  <ul id="todo-list">
+      <li ng-repeat="todo in todos" ng-class="{done: todo.done}">
+        <div class="view">
+          <input class="toggle" ng-change="ShowHide(todo)" type="checkbox" ng-model="todo.done">
+          <label>{{todo.title}}</label>
+        <span ng-cloak id="destroy" ng-click="deleteTask($index)" class="glyphicon glyphicon-trash"></span>
+
+        </div>
+
+      </li>
+    </ul>
+
+    <ul id="filters">
+      <li>
+        <button ng-show="IsVisible" class="btn btn-success" ng-click="clearCompleted()" >Clear Completed</button>
+      </li>
+
+    </ul>
+
+
+</section>
+</div>
